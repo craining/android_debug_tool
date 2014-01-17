@@ -575,7 +575,7 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 							if (pkgname.equals(getPackageName())) {
 								// android.os.Process.killProcess(android.os.Process.myPid());
 								// System.exit(0);
-								new AlertDialog.Builder(ProcessListActivity.this).setIcon(R.drawable.ic_launcher).setTitle("警告").setMessage("竟然终止我？不可能").setPositiveButton("好吧", null).create().show();
+								new AlertDialog.Builder(ProcessListActivity.this).setIcon(R.drawable.ic_launcher).setTitle("特殊警告").setMessage("竟然终止我？不可能").setPositiveButton("好吧", null).setCancelable(false).create().show();
 							} else {
 								// mActivityM.killBackgroundProcesses(pkgname);
 								mActivityM.restartPackage(pkgname);
