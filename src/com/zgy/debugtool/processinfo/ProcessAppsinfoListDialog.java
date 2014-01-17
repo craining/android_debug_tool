@@ -24,12 +24,11 @@ import com.zgy.debugtool.util.JumpUtil;
 import com.zgy.debugtool.view.MarqueeTextView;
 
 /**
- * 
- * @Description:自定义中间是list的Dialog
- * @author:hanlx
- * @see:
- * @since:
- * @Date:2013-1-14
+ * 运行程序的信息弹窗 
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
  */
 public class ProcessAppsinfoListDialog extends Dialog {
 	private Context con;

@@ -12,7 +12,6 @@ import android.widget.TextView;
  * @author: zhuanggy
  * @see:
  * @since:
- * @copyright © 35.com
  * @Date:2013-8-28
  */
 public class MarqueeTextView extends TextView {

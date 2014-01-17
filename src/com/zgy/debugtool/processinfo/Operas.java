@@ -1,5 +1,12 @@
 package com.zgy.debugtool.processinfo;
 
+/**
+ * 为方便控制操作菜单而写的一个bean，不同的进程会有不同的一系列操作
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
+ */
 public class Operas {
 	public static final int OPERA_ID_KILL = 1;
 	public static final int OPERA_ID_SHOW_INFO = 2;

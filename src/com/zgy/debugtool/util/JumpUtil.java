@@ -5,6 +5,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 
+/**
+ * 打开某程序
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
+ */
 public class JumpUtil {
 	private static final String SCHEME = "package";
 	/**

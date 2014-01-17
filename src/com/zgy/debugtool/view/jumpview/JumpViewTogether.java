@@ -1,6 +1,5 @@
 package com.zgy.debugtool.view.jumpview;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
@@ -12,7 +11,6 @@ import android.widget.LinearLayout;
 
 import com.zgy.debugtool.view.jumpview.JumpTextView.JumpAnimationListener;
 
-@SuppressLint("NewApi")
 public class JumpViewTogether extends LinearLayout {
 
 	private static final String TAG = "JumpViewTogether";
@@ -35,12 +33,6 @@ public class JumpViewTogether extends LinearLayout {
 
 	public JumpViewTogether(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		this.mContext = context;
-		init();
-	}
-
-	public JumpViewTogether(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
 		this.mContext = context;
 		init();
 	}
@@ -121,7 +113,7 @@ public class JumpViewTogether extends LinearLayout {
 			this.getChildAt(i).clearAnimation();
 		}
 	}
-	
+
 	public boolean isAnimRunning() {
 		return mIsRunning;
 	}

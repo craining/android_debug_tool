@@ -9,6 +9,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -41,6 +42,14 @@ import com.zgy.debugtool.processinfo.ProcessOperaListDialog.OnItemClickedListene
 import com.zgy.debugtool.util.PhoneUtil;
 import com.zgy.debugtool.util.Util;
 
+/**
+ * 进程列表页
+ * 
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version
+ * @since
+ */
 public class ProcessListActivity extends Activity implements OnClickListener, OnItemClickListener {
 
 	private ListView mList;
@@ -563,9 +572,10 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 					// 终止
 					for (String pkgname : process.processInfo.pkgList) {
 						try {
-							if(pkgname.equals(getPackageName())) {
-								android.os.Process.killProcess(android.os.Process.myPid());
-								System.exit(0);
+							if (pkgname.equals(getPackageName())) {
+								// android.os.Process.killProcess(android.os.Process.myPid());
+								// System.exit(0);
+								new AlertDialog.Builder(ProcessListActivity.this).setIcon(R.drawable.ic_launcher).setTitle("警告").setMessage("竟然终止我？不可能").setPositiveButton("好吧", null).create().show();
 							} else {
 								// mActivityM.killBackgroundProcesses(pkgname);
 								mActivityM.restartPackage(pkgname);
@@ -644,7 +654,7 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 			intent = mPackageM.getLaunchIntentForPackage(packageName);
 			if (intent != null) {
 				intent = intent.cloneFilter();
-//				intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+				// intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
 				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				return intent;
 			}

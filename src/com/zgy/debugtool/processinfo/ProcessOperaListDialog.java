@@ -23,12 +23,11 @@ import com.zgy.debugtool.util.ScreenUtil;
 import com.zgy.debugtool.view.MarqueeTextView;
 
 /**
- * 
- * @Description:自定义中间是list的Dialog
- * @author:hanlx
- * @see:
- * @since:
- * @Date:2013-1-14
+ * 进程的点击操作列表弹窗
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
  */
 public class ProcessOperaListDialog extends Dialog {
 	private Context con;

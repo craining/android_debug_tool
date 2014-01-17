@@ -21,6 +21,14 @@ import com.zgy.debugtool.util.Util;
 import com.zgy.debugtool.util.ViewUtil;
 import com.zgy.debugtool.view.MarqueeTextView;
 
+/**
+ * 进程列表页，列的适配
+ * 
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version
+ * @since
+ */
 public class ProcessListAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
@@ -42,7 +50,7 @@ public class ProcessListAdapter extends BaseAdapter {
 		this.mSingleLine = singleLine;
 		notifyDataSetChanged();
 	}
-	
+
 	public List<Process> getShowingProcessList() {
 		return mProcessList;
 	}
@@ -94,13 +102,13 @@ public class ProcessListAdapter extends BaseAdapter {
 			holder.textMemory.setMarquee(false);
 			name = ViewUtil
 					.getProcessPKGnameSpan(mProcessList.get(position).processInfo.processName.trim() + "\r\n", Util.getStringOfStringArray(mProcessList.get(position).processInfo.pkgList, true));
-			
+
 			holder.layoutAppIcons.removeAllViews();
-			for(PackageInfo packageinfo : mProcessList.get(position).packageInfos) {
-				Drawable icon  = packageinfo.applicationInfo.loadIcon(pm);
-				if(icon != null) {
-					ImageView img= new ImageView(mContext);
-					int wh=ScreenUtil.convertDIP2PX(mContext, 30);
+			for (PackageInfo packageinfo : mProcessList.get(position).packageInfos) {
+				Drawable icon = packageinfo.applicationInfo.loadIcon(pm);
+				if (icon != null) {
+					ImageView img = new ImageView(mContext);
+					int wh = ScreenUtil.convertDIP2PX(mContext, 30);
 					LayoutParams lp = new LayoutParams(wh, wh);
 					lp.setMargins(0, ScreenUtil.convertDIP2PX(mContext, 5), 0, 0);
 					img.setLayoutParams(lp);

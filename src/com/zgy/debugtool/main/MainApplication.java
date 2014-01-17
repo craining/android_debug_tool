@@ -20,13 +20,10 @@ public class MainApplication extends Application {
 		}
 		
 	}
-
 	
 	public static MainApplication getInstance() {
 		return instance;
 	}
-
-	
 	
 	public static WindowManager.LayoutParams getMywmParams() {
 		if(wmParams == null) {

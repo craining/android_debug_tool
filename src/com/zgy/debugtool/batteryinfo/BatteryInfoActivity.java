@@ -20,6 +20,16 @@ import android.widget.ToggleButton;
 
 import com.zgy.debugtool.main.R;
 
+/**
+ * 展示电池信息的页面
+ * 
+ * 通过注册receiver action.equals(Intent.ACTION_BATTERY_CHANGED获得电池的实时情况，貌似是30s一次
+ * 
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
+ */
 public class BatteryInfoActivity extends Activity implements OnClickListener {
 
 	private ImageView mImageback;

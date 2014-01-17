@@ -16,6 +16,13 @@ import android.widget.TextView;
 import com.zgy.debugtool.main.R;
 import com.zgy.debugtool.view.jumpview.JumpViewTogether;
 
+/**
+ * 关于页面
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
+ */
 public class AboutActivity extends Activity implements OnClickListener {
 
 	private ImageView mImgback;
@@ -41,6 +48,7 @@ public class AboutActivity extends Activity implements OnClickListener {
 		super.onResume();
 	}
 
+	
 	private void showAnimAlpha() {
 
 		Animation anim = new AlphaAnimation(0.1f, 1.0f);

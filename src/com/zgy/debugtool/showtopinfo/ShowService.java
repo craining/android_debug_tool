@@ -2,7 +2,6 @@ package com.zgy.debugtool.showtopinfo;
 
 import java.util.List;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.app.Service;
@@ -24,7 +23,13 @@ import com.zgy.debugtool.main.Constants;
 import com.zgy.debugtool.main.MainApplication;
 import com.zgy.debugtool.main.R;
 
-@SuppressLint("NewApi")
+/**
+ * 此服务承载一个view，用来实时展示前台应用的包名、活动名
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
+ */
 public class ShowService extends Service {
 	private static final String TAG = "WaterMarkService";
 
@@ -40,7 +45,6 @@ public class ShowService extends Service {
 	private TextView mTextView;
 	private boolean isViewAdded;
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onStart(Intent intent, int startId) {
 
@@ -90,7 +94,7 @@ public class ShowService extends Service {
 		mHandler.sendEmptyMessage(MSG_NOOP);
 	}
 
-	private class ListenerHandler extends Handler {
+	class ListenerHandler extends Handler {
 
 		@Override
 		public void handleMessage(Message msg) {

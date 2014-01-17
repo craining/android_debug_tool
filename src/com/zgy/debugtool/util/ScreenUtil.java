@@ -6,7 +6,6 @@ import android.content.Context;
  * 用于屏幕分辨率适配
  * @Author zhuanggy
  * @Date:2013-11-29
- * @Copyright (c) 2013, 方正电子 All Rights Reserved.
  * @version 
  * @since
  */

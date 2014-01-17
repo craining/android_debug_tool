@@ -4,6 +4,8 @@ public class Util {
 	/**
 	 * 转换文件的大小，将文件的字节数转换为kb、mb、或gb
 	 * 
+	 * 本可以直接用api里的format里的方法，但由于字符长度不能过长，用此方法
+	 * 
 	 * @Description:
 	 * @param size单位byte
 	 * @return 保留1位小数

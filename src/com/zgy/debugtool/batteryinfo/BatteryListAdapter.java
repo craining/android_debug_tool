@@ -12,6 +12,13 @@ import android.widget.TextView;
 
 import com.zgy.debugtool.main.R;
 
+/**
+ *  电池信息列表的适配 
+ * @Author zhuanggy
+ * @Date:2014-1-17
+ * @version 
+ * @since
+ */
 public class BatteryListAdapter extends BaseAdapter {
 
 	private LayoutInflater mInflater;
