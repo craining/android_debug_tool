@@ -105,6 +105,7 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 	private List<Integer> mListLockedProcess;
 
 	private List<PackageInfo> mPackagesInfoList;
+	private boolean mNeedReGetPackageInfo;
 
 	private boolean mLockedItemTop;
 
@@ -277,8 +278,9 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 	protected void onResume() {
 		super.onResume();
 		// mPackagesInfoList = mPackageM.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
-		mPackagesInfoList = mPackageM.getInstalledPackages(PackageManager.GET_PERMISSIONS);
 
+		mNeedReGetPackageInfo = true;
+		
 		if (!mTBtnAutoProcessRefresh.isChecked()) {
 			refreshProcessInfoIfTBtnUnChecked();
 		}
@@ -485,6 +487,12 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 	 * @date 2014-1-15
 	 */
 	private void readProcessListInfo() {
+		if(mPackagesInfoList == null || mNeedReGetPackageInfo) {
+			mNeedReGetPackageInfo = false;
+			//  耗时
+			Log.v("", "read package info");
+			mPackagesInfoList = mPackageM.getInstalledPackages(PackageManager.GET_PERMISSIONS | PackageManager.GET_SERVICES | PackageManager.GET_GIDS | PackageManager.GET_ACTIVITIES | PackageManager.GET_PROVIDERS | PackageManager.GET_RECEIVERS | PackageManager.GET_CONFIGURATIONS | PackageManager.GET_SIGNATURES);
+		}
 		List<RunningAppProcessInfo> processInfos = mActivityM.getRunningAppProcesses();
 		int[] pids = new int[processInfos.size()];
 		for (int i = 0; i < pids.length; i++) {

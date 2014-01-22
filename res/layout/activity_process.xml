@@ -259,8 +259,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:textOff="单行"
-                    android:textOn="单行" />
+                    android:textOff="精简"
+                    android:textOn="精简" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

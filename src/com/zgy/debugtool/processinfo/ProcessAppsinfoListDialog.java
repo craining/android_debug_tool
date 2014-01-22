@@ -1,12 +1,20 @@
 package com.zgy.debugtool.processinfo;
 
+import java.io.ByteArrayInputStream;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
+import android.content.pm.ServiceInfo;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,13 +29,16 @@ import android.widget.TextView;
 
 import com.zgy.debugtool.main.R;
 import com.zgy.debugtool.util.JumpUtil;
+import com.zgy.debugtool.util.PraseClassUtil;
+import com.zgy.debugtool.util.TimeUtil;
 import com.zgy.debugtool.view.MarqueeTextView;
 
 /**
- * 运行程序的信息弹窗 
+ * 运行程序的信息弹窗
+ * 
  * @Author zhuanggy
  * @Date:2014-1-17
- * @version 
+ * @version
  * @since
  */
 public class ProcessAppsinfoListDialog extends Dialog {
@@ -69,6 +80,7 @@ public class ProcessAppsinfoListDialog extends Dialog {
 		initView();
 	}
 
+	@SuppressLint("NewApi")
 	public void initView() {
 		titleView = (TextView) findViewById(R.id.title_list_dialog_apps);
 		if (title != null && title.length() > 0) {
@@ -92,6 +104,39 @@ public class ProcessAppsinfoListDialog extends Dialog {
 			// appinfos.add(new Appinfo("uid", app.applicationInfo.uid + ""));
 			// appinfos.add(new Appinfo("description", app.applicationInfo.descriptionRes == 0 ? "" : con.getString(app.applicationInfo.descriptionRes)));
 			appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
+			appinfos.add(new Appinfo("versionName", app.versionName));
+
+			appinfos.add(new Appinfo("activities", PraseClassUtil.praseActivity(app.activities)));
+			appinfos.add(new Appinfo("services", PraseClassUtil.praseService(app.services)));
+			appinfos.add(new Appinfo("receivers", PraseClassUtil.praseReceiver(app.receivers)));
+			appinfos.add(new Appinfo("providers", PraseClassUtil.praseProvider(app.providers)));
+			if (app.signatures != null) {
+				try {
+					 Signature s = app.signatures[0];
+					CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
+					X509Certificate cert = (X509Certificate) certFactory.generateCertificate(new ByteArrayInputStream(s.toByteArray()));
+					String pubKey = cert.getPublicKey().toString();
+					String signNumber = cert.getSerialNumber().toString();
+					appinfos.add(new Appinfo("signatures", "pubKey:" + pubKey + "\r\n\r\nsignNumber:" + signNumber));
+				} catch (Exception e) {
+					appinfos.add(new Appinfo("signatures", "null"));
+				}
+			} else {
+				appinfos.add(new Appinfo("signatures", "null"));
+			}
+
+			if (android.os.Build.VERSION.SDK_INT > 8) {
+				appinfos.add(new Appinfo("firstInstallTime", TimeUtil.longToDateTimeString(app.firstInstallTime)));
+				appinfos.add(new Appinfo("lastUpdateTime", TimeUtil.longToDateTimeString(app.lastUpdateTime)));
+			}
+
+			// appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
+			// appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
+			// appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
+			// appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
+			// appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
+			// appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
+			// appinfos.add(new Appinfo("targetSdkVersion", app.applicationInfo.targetSdkVersion + ""));
 
 			// if(app.requestedPermissions != null) {
 			// int permissionCount = app.requestedPermissions.length;

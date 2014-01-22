@@ -90,7 +90,7 @@ public class AboutActivity extends Activity implements OnClickListener {
 			public void onAnimationEnd(Animation animation) {
 				mTextViewTitle.setVisibility(View.GONE);
 				mJumpView.setVisibility(View.VISIBLE);
-				mJumpView.setJumpText("测试工具");
+				mJumpView.setJumpText("开发助手");
 				mJumpView.setSingleInfo(800, mTextViewTitle.getHeight() - 2*mTextViewTitle.getLineHeight());
 				mJumpView.setPointSize(20);
 				mJumpView.startAnim();

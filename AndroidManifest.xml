@@ -44,6 +44,11 @@
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.zgy.debugtool.allappsinfo.AllAppsList"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" />
 
         <service
             android:name="com.zgy.debugtool.showtopinfo.ShowService"
