@@ -442,6 +442,11 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 					mHandler.sendEmptyMessage(MSG_REFRESH_AFTER_GET_PROCESS_INFO);
 				} catch (Exception e) {
 					e.printStackTrace();
+					try {
+						Thread.sleep(1000);
+					} catch (Exception e2) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
@@ -462,6 +467,11 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 					mHandler.sendEmptyMessage(MSG_REFRESH_AFTER_GET_CPU_MEMORY_INFO);
 				} catch (Exception e) {
 					e.printStackTrace();
+					try {
+						Thread.sleep(1000);
+					} catch (Exception e2) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
@@ -491,7 +501,7 @@ public class ProcessListActivity extends Activity implements OnClickListener, On
 			mNeedReGetPackageInfo = false;
 			//  耗时
 			Log.v("", "read package info");
-			mPackagesInfoList = mPackageM.getInstalledPackages(PackageManager.GET_PERMISSIONS | PackageManager.GET_SERVICES | PackageManager.GET_GIDS | PackageManager.GET_ACTIVITIES | PackageManager.GET_PROVIDERS | PackageManager.GET_RECEIVERS | PackageManager.GET_CONFIGURATIONS | PackageManager.GET_SIGNATURES);
+			mPackagesInfoList = mPackageM.getInstalledPackages(PackageManager.GET_SERVICES | PackageManager.GET_GIDS | PackageManager.GET_ACTIVITIES | PackageManager.GET_PROVIDERS | PackageManager.GET_RECEIVERS | PackageManager.GET_SIGNATURES);//| PackageManager.GET_CONFIGURATIONS 
 		}
 		List<RunningAppProcessInfo> processInfos = mActivityM.getRunningAppProcesses();
 		int[] pids = new int[processInfos.size()];

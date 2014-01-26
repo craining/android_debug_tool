@@ -7,6 +7,7 @@ import java.util.List;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ServiceInfo;
+import android.util.Log;
 
 import com.zgy.debugtool.processinfo.ClassInfo;
 import com.zgy.debugtool.processinfo.CompareClassInfo;
@@ -55,63 +56,88 @@ public class PraseClassUtil {
 		if (acs == null) {
 			return "null";
 		}
+		int count = 0;
 		List<ClassInfo> classes = new ArrayList<ClassInfo>();
 		for (ActivityInfo ac : acs) {
 			String className = "";
+			Log.i("", "ac.name=" + ac.name   + "ac.packageName=" + ac.packageName);
 			if (ac.name.contains(".")) {
 				String[] names = ac.name.split("\\.");
 				className = names[names.length - 1];
+				count ++;
+				addClass(classes, ac.name.replace("." + className, ""), "." + className);
+			} else {
+				count ++;
+				addClass(classes, ac.name, "." + className);
 			}
-			addClass(classes, ac.packageName, className);
+			
 		}
-		return sortClasses(classes);
+		return count + " 个\r\n"+ sortClasses(classes);
 	}
 	
 	public static String praseService(ServiceInfo[] sers) {
 		if (sers == null) {
 			return "null";
 		}
+		int count =0;
 		List<ClassInfo> classes = new ArrayList<ClassInfo>();
 		for (ServiceInfo ac : sers) {
 			String className = "";
 			if (ac.name.contains(".")) {
 				String[] names = ac.name.split("\\.");
 				className = names[names.length - 1];
+				count ++;
+				addClass(classes, ac.name.replace("." + className, ""), "." + className);
+			} else {
+				count ++;
+				addClass(classes, ac.name, "." + className);
 			}
-			addClass(classes, ac.packageName, className);
+			
 		}
-		return sortClasses(classes);
+		return count + " 个\r\n"+ sortClasses(classes);
 	}
 	
 	public static String praseProvider(ProviderInfo[] acs) {
 		if (acs == null) {
 			return "null";
 		}
+		int count = 0;
 		List<ClassInfo> classes = new ArrayList<ClassInfo>();
 		for (ProviderInfo ac : acs) {
 			String className = "";
 			if (ac.name.contains(".")) {
 				String[] names = ac.name.split("\\.");
 				className = names[names.length - 1];
+				count ++;
+				addClass(classes, ac.name.replace("." + className, ""), "." + className);
+			} else {
+				count ++;
+				addClass(classes, ac.name, "." + className);
 			}
-			addClass(classes, ac.packageName, className);
+			
 		}
-		return sortClasses(classes);
+		return count + " 个\r\n"+ sortClasses(classes);
 	}
 	
 	public static String praseReceiver(ActivityInfo[] acs) {
 		if (acs == null) {
 			return "null";
 		}
+		int count = 0;
 		List<ClassInfo> classes = new ArrayList<ClassInfo>();
 		for (ActivityInfo ac : acs) {
 			String className = "";
 			if (ac.name.contains(".")) {
 				String[] names = ac.name.split("\\.");
 				className = names[names.length - 1];
+				count ++;
+				addClass(classes, ac.name.replace("." + className, ""), "." + className);
+			} else {
+				count ++;
+				addClass(classes, ac.name, "." + className);
 			}
-			addClass(classes, ac.packageName, className);
+			
 		}
-		return sortClasses(classes);
+		return count + " 个\r\n"+ sortClasses(classes);
 	}
 }

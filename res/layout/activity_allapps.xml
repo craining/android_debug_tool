@@ -36,7 +36,16 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
-        <ToggleButton
+              <Button
+            android:id="@+id/btn_apps_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dip"
+            android:text="刷新" /> 
+            
+<!--         <ToggleButton
             android:id="@+id/tbtn_apps_auto_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +53,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="5dip"
             android:textOff="自动刷新"
-            android:textOn="自动刷新" />
+            android:textOn="自动刷新" /> -->
     </RelativeLayout>
 
     <LinearLayout

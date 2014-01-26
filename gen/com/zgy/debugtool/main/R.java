@@ -54,6 +54,7 @@ public final class R {
     public static final class id {
         public static final int btn_about=0x7f08001e;
         public static final int btn_all_apps=0x7f08001d;
+        public static final int btn_apps_refresh=0x7f080004;
         public static final int btn_battery=0x7f08001c;
         public static final int btn_listitem_appinfo_more=0x7f08003c;
         public static final int btn_process=0x7f08001b;
@@ -100,7 +101,6 @@ public final class R {
         public static final int progress_batterylist=0x7f080017;
         public static final int progress_processlist=0x7f080031;
         public static final int summary=0x7f080046;
-        public static final int tbtn_apps_auto_refresh=0x7f080004;
         public static final int tbtn_battery_auto_refresh=0x7f080016;
         public static final int tbtn_cpu_auto_refresh=0x7f080021;
         public static final int tbtn_prcesslist_lines=0x7f080030;

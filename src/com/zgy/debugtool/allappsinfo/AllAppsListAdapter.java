@@ -5,20 +5,14 @@ import java.util.List;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.zgy.debugtool.main.R;
-import com.zgy.debugtool.util.ScreenUtil;
-import com.zgy.debugtool.util.Util;
-import com.zgy.debugtool.util.ViewUtil;
 import com.zgy.debugtool.view.MarqueeTextView;
 
 /**
@@ -51,7 +45,7 @@ public class AllAppsListAdapter extends BaseAdapter {
 		notifyDataSetChanged();
 	}
 
-	public List<PackageInfo> getShowingProcessList() {
+	public List<PackageInfo> getShowingAppsList() {
 		return mAppsList;
 	}
 
